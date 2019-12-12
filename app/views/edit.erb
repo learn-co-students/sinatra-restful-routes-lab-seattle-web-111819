@@ -1,0 +1,29 @@
+<%# contains form to update recipe & 
+POST to controller action via patch '/recipes/:id' %>
+
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Edit Recipe</title>
+    </head>
+    <body>
+        <h1>Name: <%= @recipe.name %> </h1>
+        <p> Ingredients: <%= @recipe.ingredients %> </p>
+        <p> Cook Time: <%= @recipe.cook_time %> mins.</p>
+        <form action="/recipes/<%= @recipe.id %>" method="post">
+            <input id="hidden" type="hidden" name="_method" value="PATCH" />
+            <h1>Enter NEW recipe name, ingredients & cook time in the boxes below.</h1>
+
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name" value="<%= @recipe.name %>" />
+
+            <label for="ingredients">Ingredients:</label>
+            <input id="ingredients" type="text" name="ingredients" value="<%= @recipe.ingredients %>" />
+
+            <label for="cook_time">Cook Time:</label>
+            <input id="cook_time" type="text" name="cook_time" value="<%= @recipe.cook_time %>" />
+
+            <button type="submit" value="submit">Submit</button>
+        </form>
+    </body>
+</html>

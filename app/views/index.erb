@@ -1,0 +1,17 @@
+<%# lists ALL articles %>
+<%# iterate over all articles to render to page %>
+
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title> All Recipes </title>
+    </head>
+    <br>
+    <body>
+    <h1> All Recipes </h1>
+        <% @recipes.each do |recipe|%>
+        <a href="/recipes/<%= "#{recipe.id}" %>"><%= recipe.name %></a><br>
+        <% end %>
+    </body>
+</html>
+        <%# Ingredients: <%= r.ingredients %>

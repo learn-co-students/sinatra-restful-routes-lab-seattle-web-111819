@@ -1,0 +1,23 @@
+<%# shows an individual recipe & DELETE button%>
+
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title> Recipe Info </title>
+    </head>
+    <br>
+    <body>
+        <h1>Name: <%= @recipe.name %> </h1>
+        <br>
+        <p> Ingredients: <%= @recipe.ingredients %> </p>
+        <br>
+        <p> Cook Time: <%= @recipe.cook_time %> minutes</p>
+        <br>
+        <br>
+        <br>
+        <form action="/recipes/<%=@recipe.id%>" method="post">
+            <input type="hidden" name="_method" value="delete"/>
+            <input type="submit" value="delete" />
+        </form>
+    </body>
+</html>

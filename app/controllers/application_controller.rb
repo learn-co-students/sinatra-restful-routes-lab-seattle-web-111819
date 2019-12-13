@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
   end
 
   #READ
-  #find each recipe by id && show it in the show page
+  #find each recipe by id && renders it in the show page
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     erb :show
@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
   #CREATE
   #creates a new recipe and posts it to its own page
   post '/recipes' do
-    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time]) 
+    @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time]) 
     redirect to "/recipes/#{@recipe.id}"
   end 
 
